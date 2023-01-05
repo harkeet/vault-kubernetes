@@ -42,9 +42,9 @@ dockers:
       dockerfile: packaging/docker/synchronizer/Dockerfile
       use: buildx
       image_templates:
-        - postfinance/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}
-        - postfinance/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}
-        - postfinance/{{ .ProjectName }}-synchronizer:latest
+        - harkeet/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}
+        - harkeet/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}
+        - harkeet/{{ .ProjectName }}-synchronizer:latest
       build_flag_templates:
         - --label=org.opencontainers.image.created={{ .Date }}
         - --label=org.opencontainers.image.revision={{ .ShortCommit }}
@@ -60,9 +60,9 @@ dockers:
       dockerfile: packaging/docker/synchronizer/Dockerfile
       use: buildx
       image_templates:
-        - postfinance/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}-arm64
-        - postfinance/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}-arm64
-        - postfinance/{{ .ProjectName }}-synchronizer:latest-arm64
+        - harkeet/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}-arm64
+        - harkeet/{{ .ProjectName }}-synchronizer:{{ .Major }}.{{ .Minor }}-arm64
+        - harkeet/{{ .ProjectName }}-synchronizer:latest-arm64
       build_flag_templates:
         - --platform=linux/arm64
         - --label=org.opencontainers.image.created={{ .Date }}
@@ -79,9 +79,9 @@ dockers:
       dockerfile: packaging/docker/authenticator/Dockerfile
       use: buildx
       image_templates:
-        - postfinance/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}.{{ .Patch }}
-        - postfinance/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}
-        - postfinance/{{ .ProjectName }}-authenticator:latest
+        - harkeet/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}.{{ .Patch }}
+        - harkeet/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}
+        - harkeet/{{ .ProjectName }}-authenticator:latest
       build_flag_templates:
         - --label=org.opencontainers.image.created={{ .Date }}
         - --label=org.opencontainers.image.revision={{ .ShortCommit }}
@@ -97,9 +97,9 @@ dockers:
       dockerfile: packaging/docker/authenticator/Dockerfile
       use: buildx
       image_templates:
-        - postfinance/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}.{{ .Patch }}-arm64
-        - postfinance/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}-arm64
-        - postfinance/{{ .ProjectName }}-authenticator:latest-arm64
+        - harkeet/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}.{{ .Patch }}-arm64
+        - harkeet/{{ .ProjectName }}-authenticator:{{ .Major }}.{{ .Minor }}-arm64
+        - harkeet/{{ .ProjectName }}-authenticator:latest-arm64
       build_flag_templates:
         - --platform=linux/arm64
         - --label=org.opencontainers.image.created={{ .Date }}
@@ -116,9 +116,9 @@ dockers:
       dockerfile: packaging/docker/token-renewer/Dockerfile
       use: buildx
       image_templates:
-        - postfinance/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}
-        - postfinance/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}
-        - postfinance/{{ .ProjectName }}-token-renewer:latest
+        - harkeet/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}
+        - harkeet/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}
+        - harkeet/{{ .ProjectName }}-token-renewer:latest
       build_flag_templates:
         - --label=org.opencontainers.image.created={{ .Date }}
         - --label=org.opencontainers.image.revision={{ .ShortCommit }}
@@ -134,9 +134,9 @@ dockers:
       dockerfile: packaging/docker/token-renewer/Dockerfile
       use: buildx
       image_templates:
-        - postfinance/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}-arm64
-        - postfinance/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}-arm64
-        - postfinance/{{ .ProjectName }}-token-renewer:latest-arm64
+        - harkeet/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}.{{ .Patch }}-arm64
+        - harkeet/{{ .ProjectName }}-token-renewer:{{ .Major }}.{{ .Minor }}-arm64
+        - harkeet/{{ .ProjectName }}-token-renewer:latest-arm64
       build_flag_templates:
         - --platform=linux/arm64
         - --label=org.opencontainers.image.created={{ .Date }}
@@ -146,3 +146,6 @@ dockers:
         - --label=org.opencontainers.image.vendor=PostFinance AG
         - --label=org.opencontainers.image.version={{ .Version }}
         - --pull
+snapshot:
+  # https://goreleaser.com/customization/snapshots/
+  name_template: "{{ incpatch .Version }}-SNAPSHOT"
