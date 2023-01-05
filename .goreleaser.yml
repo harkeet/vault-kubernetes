@@ -1,7 +1,7 @@
 project_name: vault-kubernetes
 release:
   github:
-    owner: postfinance
+    owner: harkeet
     name: vault-kubernetes
 builds:
     - id: synchronizer
